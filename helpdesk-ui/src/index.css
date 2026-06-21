@@ -1,0 +1,216 @@
+:root {
+  /* Classic Windows 9x Colors */
+  --bg-desktop: #008080; /* Teal desktop background */
+  --bg-window: #c0c0c0; /* Silver window background */
+  --bg-title: #000080; /* Navy Blue title bar */
+  --text-main: #000000;
+  --text-inverse: #ffffff;
+  
+  /* Borders for the classic 3D bevel effect */
+  --border-light: #ffffff;
+  --border-mid: #dfdfdf;
+  --border-dark: #808080;
+  --border-darkest: #000000;
+}
+
+body.theme-hotdog {
+  --bg-desktop: #ff0000; /* Bright Red */
+  --bg-window: #ffff00; /* Bright Yellow */
+  --bg-title: #000000; /* Black */
+  --text-main: #000000;
+  --text-inverse: #ffffff;
+  --border-light: #ffffff;
+  --border-mid: #e6e600;
+  --border-dark: #808000;
+  --border-darkest: #000000;
+}
+
+body.theme-matrix {
+  --bg-desktop: #000000; /* Black */
+  --bg-window: #000000; /* Black */
+  --bg-title: #00ff00; /* Neon Green */
+  --text-main: #00ff00; /* Neon Green */
+  --text-inverse: #000000; /* Black */
+  --border-light: #00ff00;
+  --border-mid: #009900;
+  --border-dark: #005500;
+  --border-darkest: #002200;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "MS Sans Serif", "Tahoma", "Courier New", monospace;
+  background-color: var(--bg-desktop);
+  color: var(--text-main);
+  line-height: 1.4;
+  min-height: 100vh;
+  font-size: 14px;
+}
+
+/* Base Window Styling */
+.window {
+  background-color: var(--bg-window);
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-right: 2px solid var(--border-darkest);
+  border-bottom: 2px solid var(--border-darkest);
+  box-shadow: inset -1px -1px var(--border-dark), inset 1px 1px var(--border-light);
+  padding: 2px;
+}
+
+/* Window Title Bar */
+.title-bar {
+  background-color: var(--bg-title);
+  color: var(--text-inverse);
+  padding: 4px 6px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+/* Classic Button */
+.btn {
+  background-color: var(--bg-window);
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-top: 2px solid var(--border-light);
+  border-left: 2px solid var(--border-light);
+  border-right: 2px solid var(--border-darkest);
+  border-bottom: 2px solid var(--border-darkest);
+  box-shadow: inset -1px -1px var(--border-dark);
+  cursor: pointer;
+  outline: none;
+}
+
+.btn:active {
+  border-top: 2px solid var(--border-darkest);
+  border-left: 2px solid var(--border-darkest);
+  border-right: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-light);
+  box-shadow: inset 1px 1px var(--border-dark);
+  padding: 5px 11px 3px 13px; /* visual shift when pressed */
+}
+
+.btn:disabled {
+  color: var(--border-dark);
+  text-shadow: 1px 1px var(--border-light);
+}
+
+/* Inset Input Fields */
+.input-field {
+  width: 100%;
+  background: #ffffff;
+  color: #000000;
+  font-family: inherit;
+  font-size: 13px;
+  padding: 4px;
+  border-top: 2px solid var(--border-dark);
+  border-left: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-light);
+  outline: none;
+}
+
+.input-field:focus {
+  background: #ffffff;
+}
+
+select.input-field {
+  padding: 2px;
+}
+
+textarea.input-field {
+  resize: vertical;
+}
+
+/* Layout Utilities */
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Tables / Grid styling */
+.classic-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border-top: 2px solid var(--border-dark);
+  border-left: 2px solid var(--border-dark);
+  border-right: 2px solid var(--border-light);
+  border-bottom: 2px solid var(--border-light);
+}
+
+.classic-table th, .classic-table td {
+  border: 1px solid var(--border-window);
+  padding: 4px 8px;
+  text-align: left;
+}
+
+.classic-table th {
+  background: var(--bg-window);
+  border-top: 1px solid var(--border-light);
+  border-left: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.status-badge {
+  background: #ffffff;
+  border: 1px solid var(--border-dark);
+  padding: 2px 6px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+/* Fieldset and Legend */
+fieldset {
+  border: 2px groove var(--border-light);
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+legend {
+  padding: 0 5px;
+}
+
+/* R3etroR3solve Lightning Logo */
+@keyframes lightning-glow {
+  0%   { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #0ff; opacity: 1; }
+  5%   { text-shadow: 0 0 2px #0ff, 0 0 5px #0ff; opacity: 0.8; }
+  10%  { text-shadow: 0 0 10px #fff, 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #0ff, 0 0 120px #0ff; opacity: 1; }
+  15%  { text-shadow: 0 0 2px #0ff, 0 0 5px #0ff; opacity: 0.8; }
+  50%  { text-shadow: 0 0 2px #0ff, 0 0 5px #0ff; opacity: 0.8; }
+  52%  { text-shadow: 0 0 20px #fff, 0 0 40px #0ff, 0 0 80px #0ff; opacity: 1; }
+  54%  { text-shadow: 0 0 2px #0ff, 0 0 5px #0ff; opacity: 0.8; }
+  100% { text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #0ff; opacity: 1; }
+}
+
+.retro-logo {
+  font-family: 'Courier New', Courier, monospace;
+  color: #ffffff;
+  font-weight: bold;
+  animation: lightning-glow 4s infinite;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  user-select: none;
+}
+
+.desktop-watermark {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 2.5rem;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3; /* Subtle background presence */
+}

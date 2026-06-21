@@ -1,0 +1,41 @@
+# ============================================================
+# Git Ignore for Spring Boot + Maven + IntelliJ
+# ============================================================
+
+# Compiled output
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# VS Code
+.vscode/
+
+# Maven
+.mvn/wrapper/maven-wrapper.jar
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Environment files (NEVER commit secrets)
+.env
+*.env.local
+
+# H2 database files (test)
+*.db
+*.mv.db
+*.trace.db

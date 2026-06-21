@@ -1,0 +1,29 @@
+# ============================================================
+# Development Profile Configuration
+# ============================================================
+# Activated with: --spring.profiles.active=dev
+# or via environment variable: SPRING_PROFILES_ACTIVE=dev
+
+spring:
+  # PostgreSQL Database (local development)
+  datasource:
+    url: jdbc:postgresql://localhost:5432/helpdesk_dev
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    hikari:
+      maximum-pool-size: 5        # Small pool for local dev
+      connection-timeout: 5000    # 5 seconds
+
+  # JPA: Auto-update tables in dev to preserve data
+  jpa:
+    hibernate:
+      ddl-auto: update            # Updates schema without dropping tables
+    show-sql: true                # Show SQL queries in console
+
+# Verbose logging for development
+logging:
+  level:
+    com.helpdesk: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE   # Show query parameters
+    org.springframework.security: DEBUG

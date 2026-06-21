@@ -1,0 +1,34 @@
+# ============================================================
+# Test Profile Configuration
+# ============================================================
+# Uses H2 in-memory database so tests don't need PostgreSQL
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:helpdesk_test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop       # Create tables before tests, drop after
+    show-sql: false
+
+  h2:
+    console:
+      enabled: false
+
+helpdesk:
+  jwt:
+    secret: test-secret-key-this-is-only-for-testing-purposes-must-be-256-bits-minimum-length
+    expiration-ms: 3600000        # 1 hour for tests
+
+  ai:
+    enabled: false                # Disable AI in tests
+
+logging:
+  level:
+    com.helpdesk: WARN
+    org.hibernate: WARN

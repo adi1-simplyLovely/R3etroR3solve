@@ -1,0 +1,25 @@
+# ============================================================
+# Production Profile Configuration
+# ============================================================
+# ALL SECRETS MUST COME FROM ENVIRONMENT VARIABLES.
+# NEVER hardcode credentials in this file.
+
+spring:
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+    hikari:
+      maximum-pool-size: 20
+      connection-timeout: 10000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate          # ONLY validate schema, never modify in production
+    show-sql: false               # No SQL logging in production (performance)
+
+logging:
+  level:
+    com.helpdesk: INFO
+    org.hibernate: WARN
+    org.springframework: WARN

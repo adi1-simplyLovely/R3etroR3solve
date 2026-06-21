@@ -1,0 +1,67 @@
+# ============================================================
+# AI-Powered Enterprise Helpdesk Platform
+# Default Application Configuration
+# ============================================================
+
+spring:
+  profiles:
+    active: dev
+  application:
+    name: helpdesk-platform
+
+  # JPA / Hibernate Configuration
+  jpa:
+    hibernate:
+      ddl-auto: create
+    open-in-view: false          # Best practice: disable OSIV to prevent lazy loading issues
+    properties:
+      hibernate:
+        format_sql: true         # Pretty-print SQL for readability
+
+  # Jackson JSON Configuration
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false    # ISO 8601 format: "2024-03-15T09:23:00Z"
+    default-property-inclusion: non_null  # Don't include null fields in JSON responses
+
+# Server Configuration
+server:
+  port: 8080
+  error:
+    include-message: always       # Include error messages in default error responses
+    include-binding-errors: always
+
+# ============================================================
+# Custom Application Properties
+# ============================================================
+helpdesk:
+  jwt:
+    secret: ${JWT_SECRET:bXktc2VjcmV0LWtleS13aGljaC1pcy1hdC1sZWFzdC0zMi1ieXRlcy1sb25n}
+    expiration-ms: 86400000       # 24 hours in milliseconds
+
+  ai:
+    enabled: ${AI_ENABLED:true}
+    api-key: ${GROQ_API_KEY:your_groq_api_key_here}
+    timeout-seconds: 10
+    max-retries: 3
+
+  pagination:
+    default-page-size: 20
+    max-page-size: 100
+
+# Actuator: Health checks and info endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  info:
+    env:
+      enabled: true
+
+# Application Info
+info:
+  app:
+    name: AI-Powered Enterprise Helpdesk Platform
+    description: Enterprise helpdesk with AI-powered ticket intelligence
+    version: 1.0.0
