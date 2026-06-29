@@ -1,0 +1,29 @@
+# ============================================================
+# Demo Profile Configuration (For Render / Showcase)
+# ============================================================
+# Activated with: SPRING_PROFILES_ACTIVE=demo
+
+spring:
+  # H2 In-Memory Database (No external Postgres required)
+  datasource:
+    url: jdbc:h2:mem:helpdesk_db;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+
+logging:
+  level:
+    com.helpdesk: INFO
+    org.hibernate: WARN
+    org.springframework: WARN
